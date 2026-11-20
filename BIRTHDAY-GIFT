@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday MaVundla! 🎂</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #180c36, #48206c, #a04479);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 650px;
+    padding: 40px 25px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    animation: appear 1.2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    color: #ffdf80;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(255,223,128,0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.cake {
+    font-size: 100px;
+    margin: 15px 0;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.message {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.highlight {
+    color: #ffdf80;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ffcf70, #ff7eb3);
+    color: #35133f;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+    box-shadow: 0 5px 20px rgba(255,126,179,0.3);
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(255,126,179,0.5);
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Balloons */
+.balloon {
+    position: floating;
+    bottom: -150px;
+    font-size: 50px;
+    animation: floatUp linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+    }
+    to {
+        transform: translateY(-120vh) rotate(20deg);
+    }
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    top: -20px;
+    z-index: 10;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(900deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 35px 18px;
+    }
+
+    .cake {
+        font-size: 80px;
+    }
+
+    .message {
+        font-size: 0.95rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Happy Birthday MaVundla! 🎉</h1>
+
+    <p class="subtitle">
+        NGIYAKUTHANDA YEZWA 💖
+    </p>
+
+    <div class="cake">🎂</div>
+
+    <div class="message">
+        <p>
+            Ngikufisela usuku olugcwele 
+            <span class="highlight">Uthando nenjabulo.</span>
+        </p>
+
+        <p>
+            May this new chapter bring you endless
+            opportunities, beautiful memories,
+            answered prayers. Uhlale wazi nje ukuthi ngiyakuthanda
+            futhi ngikufisela okyhle kodwa empilweni.
+        </p>
+
+        <p>
+            
+            Ngifuna wazi ukuthi I appreciate isikhundla ongiphe sona
+            empilweni yakho MNYAKENI, VUNDLAMALANGA;
+            GININDA, MAFUYANDUNA <3
+            !
+        </p>
+
+        <p class="highlight">
+            Here's to more years together sthandwa samii 🥂
+        </p>
+    </div>
+
+    <button onclick="celebrate()">
+        🎊 CLICK HERE!
+    </button>
+
+    <div class="footer">
+        Made with ❤️ just for indlovukazi.
+    </div>
+
+</div>
+
+<script>
+
+// Create confetti
+function createConfetti(amount = 100) {
+    const colors = [
+        '#ffdf80',
+        '#ff7eb3',
+        '#ffffff',
+        '#80ffdb',
+        '#c77dff',
+        '#ff595e'
+    ];
+
+    for (let i = 0; i < amount; i++) {
+        const confetti = document.createElement('div');
+
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        confetti.style.width = (Math.random() * 8 + 5) + 'px';
+        confetti.style.height = (Math.random() * 12 + 5) + 'px';
+        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        confetti.style.animationDuration =
+            (Math.random() * 3 + 2) + 's';
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 5500);
+    }
+}
+
+// Birthday surprise
+function celebrate() {
+    createConfetti(250);
+    alert("🎉 HAPPY BIRTHDAY MaVundla! 🎂💖\n\nMay all your wishes come true!");
+}
+
+// Automatic confetti on page load
+window.addEventListener('load', () => {
+    createConfetti(120);
+});
+
+// Floating balloons
+const balloons = ['🎈', '🎈', '🎈', '💖', '✨'];
+
+function createBalloon() {
+    const balloon = document.createElement('div');
+
+    balloon.className = 'balloon';
+    balloon.textContent =
+        balloons[Math.floor(Math.random() * balloons.length)];
+
+    balloon.style.left = Math.random() * 95 + 'vw';
+    balloon.style.animationDuration =
+        (Math.random() * 6 + 7) + 's';
+
+    document.body.appendChild(balloon);
+
+    setTimeout(() => balloon.remove(), 14000);
+}
+
+setInterval(createBalloon, 1200);
+
+</script>
+
+</body>
+</html>
